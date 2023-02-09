@@ -3,6 +3,8 @@ import core.MetroMap;
 import Core.Station;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
+
+
 import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
@@ -23,12 +25,12 @@ public class Main {
         MetroMap metro = new MetroMap(stationsObject, linesArray, connectionsArray);
 
         JSONCreator jsonWriter = new JSONCreator();
-        jsonWriter.writeInJSONFile(metro.getMetroObject(), "C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork-DataCollector\\src\\main\\resources\\metro.json");
+        jsonWriter.writeInJSONFile(metro.getMetroObject(), "C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork\\DataCollector\\src\\main\\resources\\metro.json");
         JSONReader jsonReader = new JSONReader();
-        jsonReader.getAmountOfStations("C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork-DataCollector\\src\\main\\resources\\metro.json");
+        jsonReader.getAmountOfStations("C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork\\DataCollector\\src\\main\\resources\\metro.json");
 
         DataCollector collector = new DataCollector();
-        collector.fileReader("C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork-DataCollector\\src\\main\\resources");
+        collector.fileReader("C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork\\DataCollector\\src\\main\\resources");
         Map<String, Station> listStations = collector.getListStations();
         setParameterHasConnection(connections, listStations);
         setParameterLineName(stations, linesArray, listStations);
@@ -53,7 +55,7 @@ public class Main {
         }
         stationObject.put("stations", stationsArray);
         JSONCreator jsonWriter1 = new JSONCreator();
-        jsonWriter1.writeInJSONFile(stationObject, "C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork-DataCollector\\src\\main\\resources\\stations.json");
+        jsonWriter1.writeInJSONFile(stationObject, "C:\\Users\\kasya\\Desktop\\Java\\FilesAndNetwork\\DataCollector\\src\\main\\resources\\stations.json");
     }
 
     private static void setParameterHasConnection(TreeSet<Connections> connections, Map<String, Station> listStations) {
